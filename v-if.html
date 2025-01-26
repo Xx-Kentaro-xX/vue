@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.jsのサンプル</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .red{
+        color: red;
+        font-size: 24px;
+      }
+      .blue{
+        color: blue;
+        font-size: 24px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vue3 - v-bind</h1>
+    <div id="app">
+      <div v-if="isRed" class="red">
+        {{ message }}
+      </div>
+      <div v-else class="blue">
+        Blue section
+      </div>
+  </body>
+  <script>
+    const appdata = {
+      data() {
+        return {
+          message: null,
+          isRed : true,
+          isBlue : false,
+        };
+      },
+      mounted(){
+        this.message = "mounted~~~~"
+        setInterval(() => {
+          this.isRed = !this.isRed;
+          this.isBlue = !this.isBlue
+        }, 1000);
+      }
+    };
+
+    Vue.createApp(appdata).mount("#app");
+  </script>
+</html>

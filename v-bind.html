@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.jsのサンプル</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .red{
+        color: red;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vue3 - v-bind</h1>
+    <div id="app">
+      <div v-bind:class = "{red:isRed}">
+        {{ message }}
+      </div>
+  </body>
+  <script>
+    const appdata = {
+      data() {
+        return {
+          message: null,
+          isRed : true
+        };
+      },
+      mounted(){
+        this.message = " This is sample page"
+      }
+    };
+
+    Vue.createApp(appdata).mount("#app");
+  </script>
+</html>
