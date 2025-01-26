@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.jsのサンプル</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      table{
+        border: 3px solid black;
+      }
+      th, td{
+        border: 1px dotted gray;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Vue3 - v-for</h1>
+    <div id="app">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Mail</th>
+          <th>Tel</th>
+        </tr>
+        <tr v-for = "person in people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.mail }}</td>
+          <td>{{ person.tel }}</td>
+        </tr>
+
+      </table>
+  </body>
+  <script>
+    const appdata = {
+      data() {
+        return {
+          people : 
+          [
+            { name: 'Yasushi', mail: 'osonoi@cu', tel: '1111' },
+            { name: 'Koh', mail: 'kojima@cu', tel: '2222' }, 
+            { name: 'Alice', mail: 'alice@example.com', tel: '3333' }, 
+            { name: 'Bob', mail: 'bob@example.com', tel: '4444' }, 
+            { name: 'Charlie', mail: 'charlie@example.com', tel: '5555' }, 
+            { name: 'David', mail: 'david@example.com', tel: '6666' }, 
+            { name: 'Eve', mail: 'eve@example.com', tel: '7777' }, 
+            { name: 'Frank', mail: 'frank@example.com', tel: '8888' }, 
+            { name: 'Grace', mail: 'grace@example.com', tel: '9999' }, 
+            { name: 'Henry', mail: 'henry@example.com', tel: '0000' }
+          ]
+        };
+      },
+    };
+
+    Vue.createApp(appdata).mount("#app");
+  </script>
+</html>
