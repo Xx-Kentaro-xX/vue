@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.jsのサンプル</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1>Vue3 - component</h1>
+    <div id="app">
+      <!-- <blog-post title="Vuejs_1"></blog-post>
+      <blog-post title="Vuejs_2"></blog-post>
+      <blog-post title="Vuejs_3"></blog-post> -->
+      <blog-post v-for="post in posts" :key="post.id" :title="post.title">
+      </blog-post>
+    </div>
+  </body>
+  <script>
+    const appdata = {
+      data() {
+        return {
+          posts: [
+            { id: 1, title: "Vuejs_1" },
+            { id: 2, title: "Vuejs_2" },
+            { id: 3, title: "Vuejs_3" },
+          ],
+        };
+      },
+      components: {
+        "blog-post": {
+          props: ["title"],
+          template: `<h4>{{ title }}</h4>`,
+        },
+      },
+    };
+
+    Vue.createApp(appdata).mount("#app");
+  </script>
+</html>

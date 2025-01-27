@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.jsのサンプル</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1>Vue3 - component</h1>
+    <div id="app">
+      <button-counter></button-counter>
+    </div>
+  </body>
+  <script>
+    const app = Vue.createApp({});
+
+    app.component("button-counter", {
+      data() {
+        return {
+          count: 0,
+        };
+      },
+      template: `
+        <button v-on:click="count++">
+          カウント = {{ count }}
+        </button>
+        `,
+    });
+
+    app.mount("#app");
+  </script>
+</html>
