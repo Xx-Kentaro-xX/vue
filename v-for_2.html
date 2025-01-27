@@ -20,6 +20,7 @@
   <body>
     <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
     <div id="app" class="container">
+      <p>{{ message }}</p>
       <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -40,6 +41,7 @@
     const appdata = {
       data() {
         return {
+          message: '※データをテーブル表示する',
           people : []
         };
       },
